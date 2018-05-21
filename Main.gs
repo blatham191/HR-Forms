@@ -64,3 +64,65 @@ function newStarter(e){
   
   sendMail(formType, approvers, key, response, driveLink);
 }
+
+
+
+function edc(e){
+  var responses = e.values;
+  var dataSheet = "edc_DataSheet";
+  var response = createObject(dataSheet, responses);
+  var sheetName = 'Employee Details Change';
+  var formType = 'Employee Details Change';
+  
+  var key = createPasskey(sheetName);
+  
+  //Send response.site and driveID column number
+  var destinationFolderID = getDriveID(response.site, 3);
+  
+  var driveLink = driveFilePath + destinationFolderID
+  
+  if(response.perm_fName != ""){
+    var name = response.perm_fName+" "+response.perm_sName;
+    var fullName = response.perm_fName+"+"+response.perm_sName;
+  }
+  else{
+    var name = response.agency_fName+" "+response.agency_sName;
+    var fullName = response.agency_fName+"+"+response.agency_sName;
+  }
+}
+
+
+
+function payAdjust(e){
+  var responses = e.values;
+  var dataSheet = "payAdjust_DataSheet";
+  var response = createObject(dataSheet, responses);
+  var sheetName = 'Pay Adjustment/Query';
+  var formType = 'Pay Adjustment/Query';
+  
+  var key = createPasskey(sheetName);
+}
+
+
+
+function changeInTerms(e){
+  var responses = e.values;
+  var dataSheet = "changeInTerms_DataSheet";
+  var response = createObject(dataSheet, responses);
+  var sheetName = 'Change in Terms of Employment';
+  var formType = 'Change in Terms of Employment';
+  
+  var key = createPasskey(sheetName);
+}
+
+
+
+function leaver(e){
+  var responses = e.values;
+  var dataSheet = "leaver_DataSheet";
+  var response = createObject(dataSheet, responses);
+  var sheetName = 'Leaver';
+  var formType = 'Leaver';
+  
+  var key = createPasskey(sheetName);
+}
