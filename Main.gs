@@ -7,7 +7,7 @@ var driveFilePath = "https://drive.google.com/file/d/"
 function newStarter(e){
   //Assign responses to variable (this is an array)
   var responses = e.values;
-  var dataSheet = "DataSheet";
+  var dataSheet = "NewStarter_DataSheet";
   var response = createObject(dataSheet, responses);
   var sheetName = 'New Starter Form';
   var formType = 'New Starter';

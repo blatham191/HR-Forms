@@ -45,6 +45,3 @@ function sendMail(formType, approvers, key, response, driveLink){
 }
 
 
-function sendMailToLiz(){
-
-}

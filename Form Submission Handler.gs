@@ -34,15 +34,18 @@ function onFormSubmit(e){
     Logger.log("Trigger New Starter Function");
     newStarter(e);
   }
-//  else if('Approval' in e.namedValues){
-//    Logger.log("Trigger Approval Function");
-//  }
-//  else if('Approval' in e.namedValues){
-//    Logger.log("Trigger Approval Function");
-//  }
-//  else if('Approval' in e.namedValues){
-//    Logger.log("Trigger Approval Function");
-//  }  
+  else if('Employee Details Change' in e.namedValues){
+    Logger.log("Trigger EDC Function");
+  }
+  else if('Pay Adjustment/Query' in e.namedValues){
+    Logger.log("Trigger PayAdjust Function");
+  }
+  else if('Change in Terms of Employment' in e.namedValues){
+    Logger.log("Trigger Change in Terms Function");
+  }
+  else if('Leaver' in e.namedValues){
+    Logger.log("Trigger Leaver Function");
+  } 
 }
 
 
