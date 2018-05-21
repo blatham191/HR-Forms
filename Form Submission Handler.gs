@@ -36,46 +36,21 @@ function onFormSubmit(e){
   }
   else if('Employee Details Change' in e.namedValues){
     Logger.log("Trigger EDC Function");
+    edc(e);
   }
   else if('Pay Adjustment/Query' in e.namedValues){
     Logger.log("Trigger PayAdjust Function");
+    payAdjust(e);
   }
   else if('Change in Terms of Employment' in e.namedValues){
     Logger.log("Trigger Change in Terms Function");
+    changeInTerms(e);
   }
   else if('Leaver' in e.namedValues){
     Logger.log("Trigger Leaver Function");
+    leaver(e);
   } 
 }
 
 
-function approvalProcess(e){
-  var responses = e.values;
-  var answer = approvalHandle(responses);
-  var approvedAnswer = approvalReply(responses, answer);
-  var ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
-  var payroll = getPayroll(responses[9]);
-  
-  if (approvedAnswer == "Approved"){
-    var fileName = "["+payroll+"]"+responses[2]+" - "+responses[3]+" - "+responses[7];
-    var destinationFolderID = getDriveID(responses[9], 3);
-    var destFolder = DriveApp.getFolderById(destinationFolderID);
-    var folders = [destFolder, ftpFolder]
-    var docId = addApprover("New Starter Form", responses)
-    
-    var newId = makePDF(docId, folders, fileName);
-    var document = _docUrl+newId;
-    var payrollBody = "Hi Liz, A new form has been submitted, please see the following link for the submission document "+document;
-    
-    approvalEmails("ben.latham@roadchef.com", responses[2]+" "+"Submitted", payrollBody)
-  }
-  else if (approvedAnswer == "Rejected"){
-    var fileName = "[REJECTED]"+responses[2]+" - "+responses[3]+" - "+responses[7];
-    var destinationFolderID = getDriveID(responses[9], 4);
-    var destFolder = DriveApp.getFolderById(destinationFolderID);
-    var folders = [destFolder]
-    var docId = addApprover("New Starter Form", responses)
-    makePDF(docId, folders, fileName);
-  }
 
-}
