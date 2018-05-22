@@ -93,6 +93,8 @@ function writeEcd(body, response, key){
   body.replaceText("<<Type of change>>", response.typeOfChange)
   
   body.replaceText("<<payrollNum>>", response.payrollNum)
+  body.replaceText("<<forename>>", response.fName); 
+  body.replaceText("<<surname>>", response.sName);
   body.replaceText("<<site>>", response.site)
   body.replaceText("<<department>>", response.department)
   
@@ -145,7 +147,7 @@ function writeEcd(body, response, key){
 function writePayAdjust(body, response, key){
   body.replaceText("<<Email Address>>", response.email); 
   
-  body.replaceText("<<typeOfChange>>", response.typeOfChnage); 
+  body.replaceText("<<typeOfChange>>", response.typeOfChange); 
   
   body.replaceText("<<payrollType>>", response.payrollType); 
   body.replaceText("<<payrollNum>>", response.payrollNum); 
@@ -162,7 +164,7 @@ function writePayAdjust(body, response, key){
   body.replaceText("<<comments>>", response.comments); 
   
   
-  body.replaceText("<<Access Code>>", response.key); 
+  body.replaceText("<<Access Code>>", key); 
 }
 
 function writeChangeTerms(body, response, key){
@@ -175,6 +177,7 @@ function writeChangeTerms(body, response, key){
   body.replaceText("<<forename>>", response.fName);
   body.replaceText("<<surname>>", response.sName);
   
+  body.replaceText("<<basic pay>>", response.basicPay);
   body.replaceText("<<rate qualifier>>", response.rateQualifier); 
   body.replaceText("<<hourly rate>>", response.hourlyRate);
   body.replaceText("<<contracted hours>>", response.contractedHours);
@@ -186,10 +189,11 @@ function writeChangeTerms(body, response, key){
   body.replaceText("<<comments>>", response.comments);
   
   
-  body.replaceText("<<Access Code>>", response.key);
+  body.replaceText("<<Access Code>>", key);
 }
 
 function writeLeaver(body, response, key){
+Logger.log(key)
   body.replaceText("<<Email Address>>", response.email);
 
   body.replaceText("<<type>>", response.type);
@@ -204,6 +208,6 @@ function writeLeaver(body, response, key){
   body.replaceText("<<agency>>", response.agency);
   
   
-  body.replaceText("<<Access Code>>", response.key);
+  body.replaceText("<<Access Code>>", key);
 }
 

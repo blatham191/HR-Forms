@@ -19,7 +19,7 @@ function writeDocument(formType, docId, folder, response, key){
   var doc = DocumentApp.openById(docId);
   //Get body of document
   var body = doc.getBody();
-  
+  Logger.log(key)
   if(formType == "New Starter"){
     writeNewStarter(body, response, key)
   }

@@ -11,14 +11,7 @@
 //Google Sync file to server C:\ drive and set task in task scheduler to run batch file to move to PI channel folder on server
 
 /*
-*Current Issues/Todo
-*Adding approver to the document (using doc id from spreadsheet triggers but dosn't replace text. DONE
-*Add comments
-*Set correct folder for final file - DONE
-*Set up where file goes for rejected submissions DONE
-*Set up file structure for archived submissions DONE
-*Add/Remove Approvers to/from their sites folder
-*Set up bank logic DONE
+*Make sure everything routes to the correct place
 *
 */
 
