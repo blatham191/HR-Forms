@@ -62,7 +62,7 @@ function newStarter(e){
   
   var approvers = getApprovers(response.site);
   
-  sendMail(formType, approvers, key, response, driveLink);
+  sendMail(formType, approvers, key, response, driveLink, fullName, name);
 }
 
 
