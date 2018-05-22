@@ -49,7 +49,7 @@ function newStarter(e){
   var keys = ss.getRange(1, lastCol-4, lastRow, 1).getValues();
   
   
-  writeDocument(docId, destFolder, response, key);
+  writeDocument(formType, docId, destFolder, response, key);
   
   
   for (var i=0; i<keys.length; i++){
@@ -102,7 +102,7 @@ function edc(e){
   var keys = ss.getRange(1, lastCol-4, lastRow, 1).getValues();
   
   
-  writeDocument(docId, destFolder, response, key);
+  writeDocument(formType, docId, destFolder, response, key);
   
   
   for (var i=0; i<keys.length; i++){
@@ -150,7 +150,7 @@ function payAdjust(e){
   var keys = ss.getRange(1, lastCol-4, lastRow, 1).getValues();
   
   
-  writeDocument(docId, destFolder, response, key);
+  writeDocument(formType, docId, destFolder, response, key);
   
   
   for (var i=0; i<keys.length; i++){
@@ -197,7 +197,7 @@ function changeInTerms(e){
   var keys = ss.getRange(1, lastCol-4, lastRow, 1).getValues();
   
   
-  writeDocument(docId, destFolder, response, key);
+  writeDocument(formType, docId, destFolder, response, key);
   
   
   for (var i=0; i<keys.length; i++){
@@ -244,7 +244,7 @@ function leaver(e){
   var keys = ss.getRange(1, lastCol-4, lastRow, 1).getValues();
   
   
-  writeDocument(docId, destFolder, response, key);
+  writeDocument(formType, docId, destFolder, response, key);
   
   
   for (var i=0; i<keys.length; i++){
