@@ -176,7 +176,7 @@ function changeInTerms(e){
   var formType = 'Change in Terms of Employment';
   
   var key = createPasskey(sheetName);
-  
+  Logger.log(response.site)
   var destinationFolderID = getDriveID(response.site, 9);
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
@@ -228,7 +228,7 @@ function leaver(e){
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
   var driveLink = driveFilePath + destinationFolderID
-  var fileName = formType+" - "+fullName+" - "+key;
+  var fileName = formType+" - "+name+" - "+key;
   Logger.log(destinationFolderID);
   //var destinationFolderID = "1RJNzvTA-Li0ESvl1rXP-nkv5285yjw6U";
   var destFolder = DriveApp.getFolderById(destinationFolderID);

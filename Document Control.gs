@@ -4,7 +4,6 @@ function copyDocument(response, destFolder, template, fileName){
 //Set file name to be requester name + type of request
   //var fileName = "tempFile";
 //Check the type of request and copy the appropriate document (from gDoc key)
-
     
     var docId = DriveApp.getFileById(template).makeCopy(fileName, destFolder).getId();
     Logger.log(docId);

@@ -19,7 +19,7 @@ function sendMail(formType, approvers, key, response, driveLink, linkName, name)
 //    var linkName = response.agency_fName+"+"+response.agency_sName;
 //  }
   
-  var linkType = response.type.replace(/\s/g, "+");
+  //var linkType = response.type.replace(/\s/g, "+");
   
   
   var formLink = "https://docs.google.com/forms/d/e/1FAIpQLSes1kjRPK0bq6byqO0emtk7TfzJQLn6o1knN9ooQyftxC87sQ/viewform?usp=pp_url";

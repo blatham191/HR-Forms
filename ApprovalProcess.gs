@@ -43,15 +43,7 @@ function approvalProcess(e){
   }
   else if (approvedAnswer == "Rejected"){
     var fileName = "[REJECTED]"+responses[2]+" - "+responses[3]+" - "+responses[7];
-    
-    
-    
-    //////////////////////////////////////////////////////
     var destinationFolderID = getDriveID(responses[9], col+1);
-    //////////////////////////////////////////////////////
-    
-    
-    
     var destFolder = DriveApp.getFolderById(destinationFolderID);
     var folders = [destFolder]
     var docId = addApprover(dataSheet , responses)
