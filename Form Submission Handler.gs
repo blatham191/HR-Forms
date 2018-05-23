@@ -11,10 +11,26 @@
 //Google Sync file to server C:\ drive and set task in task scheduler to run batch file to move to PI channel folder on server
 
 /*
+*New starter forms are sent to payroll with a copy to Liz. WORKING
+*Employee Details Change forms are sent to payroll with a copy to Liz. WORKING
+*
+*Pay Adjustment forms should be sent to Liz, for checking, amending Kronos records, issuing Pay Advances etc.  Once checked I forward to payroll with any additional instruction required. WORKING
+*File is dropped into "For Approval" folder, once approved Liz can drop it into the approved folder which will send it to SD Worx
+*
+*Change in Terms forms are sent to payroll with a copy to Liz, with the exception of grade changes.
+*Grade changes are sent to Karen Fellows with a copy to Liz. Once authorised Karen will forward to payroll with a copy to Liz.
+*ASK KAREN ABOUT THIS
+*
+*Leaver forms are sent to payroll with a copy to me. WORKING
+*/
+
+/*
+*
 *Make sure everything routes to the correct place
 *
 */
 
+//Pay adjustment forms should be sent to me, for checking, amending Kronos records, issuing Pay Advances etc.  Once checked I forward to payroll with any additional instruction required.
 
 //Triggered when form is submitted 'e' is the form response
 function onFormSubmit(e){

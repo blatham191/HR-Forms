@@ -3,29 +3,39 @@ function approvalProcess(e){
   var answer = approvalHandle(responses);
   var dataSheet = "";
   var col = "";
+  var ftpFolder = "";
   if(responses[2] == "New Starter"){
     dataSheet ="NewStarter_DataSheet";
     col = 3;
+    ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
   }
   else if(responses[2] == "Employee Details Change"){
     dataSheet ="edc_DataSheet";
+    ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
     col = 5;
   }
   else if(responses[2] == "Pay Adjustment/Query"){
     dataSheet ="payAdjust_DataSheet";
+    ftpFolder = DriveApp.getFolderById("17wvH-K_xOKfctMcGm7ffphkeXG-xY-hm")
     col = 7;
   }
   else if(responses[2] == "Change in Terms of Employment"){
     dataSheet ="changeInTerms_DataSheet";
+    if(gradeChange == false){
+      ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
+    }
+    else if(gradeChange == true){
+      ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
+    }
     col = 9;
   }
   else if(responses[2] == "Leaver"){
     dataSheet ="leaver_DataSheet";
+    ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
     col = 11;
   }
   
   var approvedAnswer = approvalReply(responses, answer, dataSheet);
-  var ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
   var payroll = getPayroll(responses[9]);
   
   if (approvedAnswer == "Approved"){
