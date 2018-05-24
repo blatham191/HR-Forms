@@ -9,7 +9,7 @@ function newStarter(e){
   var responses = e.values;
   var dataSheet = "NewStarter_DataSheet";
   var response = createObject(dataSheet, responses);
-  var sheetName = 'New Starter Form';
+  var sheetName = 'New Starter';
   var formType = 'New Starter';
   
   var key = createPasskey(sheetName);
@@ -17,7 +17,7 @@ function newStarter(e){
   //Send response.site and driveID column number
   var destinationFolderID = getDriveID(response.site, 3);
   
-  var driveLink = driveFilePath + destinationFolderID
+  
   
   if(response.perm_fName != ""){
     var name = response.perm_fName+" "+response.perm_sName;
@@ -59,7 +59,7 @@ function newStarter(e){
       docIdCell.setValue(docId);
     }
   }
-  
+  var driveLink = driveFilePath + docId
   var approvers = getApprovers(response.site);
   
   sendMail(formType, approvers, key, response, driveLink, fullName, name);
@@ -79,7 +79,6 @@ function edc(e){
   //Send response.site and driveID column number
   var destinationFolderID = getDriveID(response.site, 5);
   
-  var driveLink = driveFilePath + destinationFolderID
 
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
@@ -112,7 +111,7 @@ function edc(e){
       docIdCell.setValue(docId);
     }
   }
-  
+  var driveLink = driveFilePath + docId
   var approvers = getApprovers(response.site);
   
   sendMail(formType, approvers, key, response, driveLink, fullName, name);
@@ -133,7 +132,6 @@ function payAdjust(e){
   var destinationFolderID = getDriveID(response.site, 7);
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
-  var driveLink = driveFilePath + destinationFolderID
   var fileName = formType+" - "+fullName+" - "+key;
   Logger.log(destinationFolderID);
   //var destinationFolderID = "1RJNzvTA-Li0ESvl1rXP-nkv5285yjw6U";
@@ -160,7 +158,7 @@ function payAdjust(e){
       docIdCell.setValue(docId);
     }
   }
-  
+  var driveLink = driveFilePath + docId
   var approvers = getApprovers(response.site);
   
   sendMail(formType, approvers, key, response, driveLink, fullName, name);
@@ -180,7 +178,6 @@ function changeInTerms(e){
   var destinationFolderID = getDriveID(response.site, 9);
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
-  var driveLink = driveFilePath + destinationFolderID
   var fileName = formType+" - "+fullName+" - "+key;
   Logger.log(destinationFolderID);
   //var destinationFolderID = "1RJNzvTA-Li0ESvl1rXP-nkv5285yjw6U";
@@ -207,7 +204,7 @@ function changeInTerms(e){
       docIdCell.setValue(docId);
     }
   }
-  
+  var driveLink = driveFilePath + docId
   var approvers = getApprovers(response.site);
   
   sendMail(formType, approvers, key, response, driveLink, fullName, name);
@@ -227,7 +224,6 @@ function leaver(e){
   var destinationFolderID = getDriveID(response.site, 11);
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
-  var driveLink = driveFilePath + destinationFolderID
   var fileName = formType+" - "+name+" - "+key;
   Logger.log(destinationFolderID);
   //var destinationFolderID = "1RJNzvTA-Li0ESvl1rXP-nkv5285yjw6U";
@@ -254,7 +250,7 @@ function leaver(e){
       docIdCell.setValue(docId);
     }
   }
-  
+  var driveLink = driveFilePath + docId
   var approvers = getApprovers(response.site);
   
   sendMail(formType, approvers, key, response, driveLink, fullName, name);

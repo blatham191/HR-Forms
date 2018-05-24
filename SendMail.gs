@@ -36,12 +36,23 @@ function sendMail(formType, approvers, key, response, driveLink, linkName, name)
   
   var html = "A "+formType+" form has been submitted for "+name+" by "+response.email+" and needs approval<br>" + "<a href='"+link+"'>Click Here</a><br>Please go to the following <a href='"+driveLink+"'>Google Drive Link to see the full document</a>";
 
+  var approverList = "";
+
   for(var i=0; i<approvers.length; i++){
     MailApp.sendEmail(approvers[i], subject, "Null", {
       name:"HR Approver",
       htmlBody: html
     })
+    approverList += approvers[i]+ ", ";
   }
+  
+  
+  
+  var subSubject = formType + " Form Submission (" + key + ")" ;
+  var subBody = "Your form submission for "+name+" has been recieved. An approval email has been sent to "+approverList;
+  MailApp.sendEmail(response.email, subSubject, subBody, {
+      name:"HR Approver",
+    })
 }
 
 

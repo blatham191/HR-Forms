@@ -3,7 +3,7 @@
 //Set output folder and template document and trigger copyDocument function (send it the template and folder ID's aswell as responses) set new doc ID as variable
 //Run writeDocument function send it the new docs ID along with destination folder and responses 
 // Create key from key creation function (Pass it the sheet name that the form responses write too.)
-//Get a list of approvers and the drive link for the site teh relates to the form response.
+//Get a list of approvers and the drive link for the site the relates to the form response.
 
 //Send email(pass it the approvers, key, response details and the link to the drive folder)
 //On Approval add approver to the file and convert to pdf
@@ -23,14 +23,14 @@
 *
 *Leaver forms are sent to payroll with a copy to me. WORKING
 */
+//Pay adjustment forms should be sent to me, for checking, amending Kronos records, issuing Pay Advances etc.  Once checked I forward to payroll with any additional instruction required.
 
 /*
 *
-*Make sure everything routes to the correct place
+*ADD GRADE CHANGE QUESTION TO CHANGE IN TERMS
 *
 */
 
-//Pay adjustment forms should be sent to me, for checking, amending Kronos records, issuing Pay Advances etc.  Once checked I forward to payroll with any additional instruction required.
 
 //Triggered when form is submitted 'e' is the form response
 function onFormSubmit(e){
