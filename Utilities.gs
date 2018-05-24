@@ -115,6 +115,8 @@ function getData(){
 
 
 function getDriveID(site, col){
+//  var site = "Annandale";
+//  var col = 9;
   var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("DriveLinks");
   var lastRow = ss.getLastRow();
   var sites = ss.getRange(1, 1, lastRow).getValues();
@@ -125,7 +127,7 @@ function getDriveID(site, col){
       var id = ids[i];
     }
   }
-  
+  Logger.log(id);
   return id;
 }
 
