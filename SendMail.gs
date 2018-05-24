@@ -35,7 +35,7 @@ function sendMail(formType, approvers, key, response, driveLink, linkName, name)
   }
   else{
     var subject = formType + " Form Approval Request (" + key + ")" ;
-    var html = "A "+formType+" form has been submitted for "+name+" by "+response.email+" and needs approval<br>" + "<a href='"+link+"'>Click Here</a><br>Please go to the following <a href='"+driveLink+"'>Google Drive Link to see the full document</a>";
+    var html = "A "+formType+" form has been submitted for "+name+" by "+response.email+" and needs approval<br>" + "<a href='"+link+"'>Approve/Reject</a><br>Please go to the following <a href='"+driveLink+"'>Google Drive Link to see the full document</a>";
   }
 
   var approverList = "";

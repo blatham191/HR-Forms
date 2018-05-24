@@ -2,9 +2,8 @@
 //Pass responses and sheet name to createObject function to create JS object dynamically - set to response variable
 //Set output folder and template document and trigger copyDocument function (send it the template and folder ID's aswell as responses) set new doc ID as variable
 //Run writeDocument function send it the new docs ID along with destination folder and responses 
-// Create key from key creation function (Pass it the sheet name that the form responses write too.)
+//Create key from key creation function (Pass it the sheet name that the form responses write too.)
 //Get a list of approvers and the drive link for the site the relates to the form response.
-
 //Send email(pass it the approvers, key, response details and the link to the drive folder)
 //On Approval add approver to the file and convert to pdf
 //Delete temp Google doc and copy file to ftp folder
@@ -25,10 +24,11 @@
 *Leaver forms are sent to payroll with a copy to me. WORKING
 */
 
-/*
+/*TODO
 *
 *
 *SWITCH OWNERSHIP
+*
 *
 */
 

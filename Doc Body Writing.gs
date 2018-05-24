@@ -73,11 +73,16 @@ function writeNewStarter(body, response, key) {
       body.replaceText("<<Sort Code>>" , response.bank_sortNo);
       body.replaceText("<<Building Society Number>>" , "N/A");
     }
-    if(response.bankType == "Bank Account"){
+    if(response.bankType == "Building Society"){
       body.replaceText("<<Account Number>>" , response.buildingSo_accountNo);
       body.replaceText("<<Sort Code>>" , response.buildingSo_sortNo);
       body.replaceText("<<Building Society Number>>" , response.buildingSo_buildingSocietyNo);
     }     
+    if(response.bankType == "None"){
+      body.replaceText("<<Account Number>>" , "N/A");
+      body.replaceText("<<Sort Code>>" , "N/A");
+      body.replaceText("<<Building Society Number>>" , "N/A");
+    } 
     
     body.replaceText("<<Email address>>" , response.email);
     
@@ -130,16 +135,21 @@ function writeEcd(body, response, key){
   }
   
   body.replaceText("<<bank type>>", response.bankType)
-  if(response.bankType == "Bank Account"){
+    if(response.bankType == "Bank Account"){
       body.replaceText("<<Account Number>>" , response.bank_accountNo);
       body.replaceText("<<Sort Code>>" , response.bank_sortNo);
       body.replaceText("<<Building Society Number>>" , "N/A");
     }
-  if(response.bankType == "Bank Account"){
+    if(response.bankType == "Building Society"){
       body.replaceText("<<Account Number>>" , response.buildingSo_accountNo);
       body.replaceText("<<Sort Code>>" , response.buildingSo_sortNo);
       body.replaceText("<<Building Society Number>>" , response.buildingSo_buildingSocietyNo);
-  }     
+    }     
+    if(response.bankType == "None"){
+      body.replaceText("<<Account Number>>" , "N/A");
+      body.replaceText("<<Sort Code>>" , "N/A");
+      body.replaceText("<<Building Society Number>>" , "N/A");
+    }       
   
   body.replaceText("<<Access Code>>" , key);
 }
