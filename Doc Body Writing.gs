@@ -146,9 +146,7 @@ function writeEcd(body, response, key){
 
 function writePayAdjust(body, response, key){
   body.replaceText("<<Email Address>>", response.email); 
-  
-  body.replaceText("<<typeOfChange>>", response.typeOfChange); 
-  
+    
   body.replaceText("<<payrollType>>", response.payrollType); 
   body.replaceText("<<payrollNum>>", response.payrollNum); 
   body.replaceText("<<forename>>", response.fName); 
@@ -180,6 +178,7 @@ function writeChangeTerms(body, response, key){
   body.replaceText("<<basic pay>>", response.basicPay);
   body.replaceText("<<rate qualifier>>", response.rateQualifier); 
   body.replaceText("<<hourly rate>>", response.hourlyRate);
+  body.replaceText("<<grade change>>", response.gradeChange);
   body.replaceText("<<contracted hours>>", response.contractedHours);
   body.replaceText("<<cost code>>", response.costCode);
   body.replaceText("<<site>>", response.site);

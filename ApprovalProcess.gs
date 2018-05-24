@@ -4,6 +4,7 @@ function approvalProcess(e){
   var dataSheet = "";
   var col = "";
   var ftpFolder = "";
+  var forHR = false;
   if(responses[2] == "New Starter"){
     dataSheet ="NewStarter_DataSheet";
     col = 3;
@@ -21,10 +22,11 @@ function approvalProcess(e){
   }
   else if(responses[2] == "Change in Terms of Employment"){
     dataSheet ="changeInTerms_DataSheet";
-    if(gradeChange == false){
-      ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
+    if(responses[10] == "Yes"){
+      ftpFolder = DriveApp.getFolderById("1zn8Ih23KAciLHY6eY2fz-3jbdkH1eCig")
+      forHR = true
     }
-    else if(gradeChange == true){
+    else if(responses[10] == "No"){
       ftpFolder = DriveApp.getFolderById("1-B-neMTtdLdn7naLMo3EEgiuM45FKul8")
     }
     col = 9;
@@ -47,7 +49,15 @@ function approvalProcess(e){
     
     var newId = makePDF(docId, folders, fileName);
     var document = _docUrl+newId;
-    var payrollBody = "Hi Liz, A new form has been submitted, please see the following link for the submission document "+document;
+    
+    if(forHR == true){
+      var recipient = "karen.fellows@roadchef.com"
+      var payrollBody = "Hi Karen, A new form has been submitted, please see the following link for the submission document "+document;
+    }
+    else{
+      var recipient = "liz.robertson@roadchef.com"
+      var payrollBody = "Hi Liz, A new form has been submitted, please see the following link for the submission document "+document;
+    }
     
     approvalEmails("ben.latham@roadchef.com", responses[2]+" "+"Submitted", payrollBody)
   }
