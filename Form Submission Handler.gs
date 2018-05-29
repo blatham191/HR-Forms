@@ -32,7 +32,6 @@
 *
 */
 
-
 //Triggered when form is submitted 'e' is the form response
 function onFormSubmit(e){
 //Assign responses to variable (this is an array)

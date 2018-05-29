@@ -1,7 +1,7 @@
 //Global Vars
 var _spreadsheetId = '1bkQZlQiyjGQcV8_76Mjsa7OSDLjrUrx5tlnYllCOZCI';
 var _approversSheet = '1nhTa3DfM2ehEVnDAL8F9kQEtAqJiyBPmmSUswmLlVu0';
-var _docUrl = "https://docs.google.com/document/d/";
+var _docUrl = "https://docs.google.com/file/d/";
 var driveFilePath = "https://drive.google.com/file/d/"
 
 function newStarter(e){
@@ -16,8 +16,6 @@ function newStarter(e){
   
   //Send response.site and driveID column number
   var destinationFolderID = getDriveID(response.site, 3);
-  
-  
   
   if(response.perm_fName != ""){
     var name = response.perm_fName+" "+response.perm_sName;
@@ -82,8 +80,7 @@ function edc(e){
 
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
-  
-  
+ 
   
   var fileName = formType+" - "+fullName+" - "+key;
   Logger.log(destinationFolderID);
