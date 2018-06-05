@@ -55,6 +55,12 @@ function sendMail(formType, approvers, key, response, driveLink, linkName, name)
   MailApp.sendEmail(response.email, subSubject, subBody, {
       name:"HR Approver",
     })
+    
+  var debugSubject = formType + " Form Submission (" + key + ")" ;
+  var debugBody = "A form has been submitted by "+response.email+". An approval email has been sent to "+approverList;
+  MailApp.sendEmail("ben.latham@roadchef.com", subSubject, subBody, {
+      name:"HR Approver",
+    })
 }
 
 
