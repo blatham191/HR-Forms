@@ -1,3 +1,17 @@
+function createPasskey(sheetName){
+  var data = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+  var numRows = data.getLastRow()
+  var numCols = data.getLastColumn()
+  var keyCell = data.getRange(numRows, numCols-4); 
+  
+  var value = getGUID();
+
+  keyCell.setValue(value);
+  
+  return value;
+  
+}
+
 /**
  * Returns an rfc4122 version 4 compliant GUID / UUID string
  * http://stackoverflow.com/a/2117523/1677912
@@ -14,9 +28,9 @@ function getGUID() { // Public Domain/MIT
     });
 }
 
-function getRandom(min, max) {
-  return Math.random() * (max - min) + min;
-}
+//function getRandom(min, max) {
+//  return Math.random() * (max - min) + min;
+//}
 
 
 
@@ -33,20 +47,6 @@ function createObject(sheetName, responses){
   return response;
 }
 
-
-function createPasskey(sheetName){
-  var data = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
-  var numRows = data.getLastRow()
-  var numCols = data.getLastColumn()
-  var keyCell = data.getRange(numRows, numCols-4); 
-  
-  var value = getGUID();
-
-  keyCell.setValue(value);
-  
-  return value;
-  
-}
 
 
 //DEACTIVATE FOR LIVE
@@ -86,31 +86,31 @@ function getApprovers(site){
 //}
 
 
-function getDriveLink(site){
-  //var site = "Site2";
-  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("DriveLinks");
-  var lastRow = ss.getLastRow();
-  var sites = ss.getRange(1, 1, lastRow).getValues();
-  var links = ss.getRange(1, 2, lastRow).getValues();
-      
-  for (var i=0; i<sites.length; i++){
-    if(sites[i]==site){
-      var link = links[i];
-    }
-  }
-  Logger.log(link)
-  return link;
-}
+//function getDriveLink(site){
+//  //var site = "Site2";
+//  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("DriveLinks");
+//  var lastRow = ss.getLastRow();
+//  var sites = ss.getRange(1, 1, lastRow).getValues();
+//  var links = ss.getRange(1, 2, lastRow).getValues();
+//      
+//  for (var i=0; i<sites.length; i++){
+//    if(sites[i]==site){
+//      var link = links[i];
+//    }
+//  }
+//  Logger.log(link)
+//  return link;
+//}
 
 
-function getData(){
-  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
-  var lastRow = ss.getLastRow();
-  var lastCol = ss.getLastColumn();
-  
-  var dataRange = ss.getRange(lastRow, 1, 1, lastCol).getValues();
-  return dataRange;
-}
+//function getData(){
+//  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
+//  var lastRow = ss.getLastRow();
+//  var lastCol = ss.getLastColumn();
+//  
+//  var dataRange = ss.getRange(lastRow, 1, 1, lastCol).getValues();
+//  return dataRange;
+//}
 
 
 
@@ -221,17 +221,3 @@ function removePermissons(folders){
   }
 }
 
-
-function testFolder(id){
-  var exist = true;
-  try{var testFolder = DriveApp.getFolderById(id)}
-  catch(err){exist=false}
-  return exist;
-}
-
-function testViewer(folder){
-  var exist = true;
-  try{var testViewer = folder.getViewers()}
-  catch(err){exist=false}
-  return exist;
-}

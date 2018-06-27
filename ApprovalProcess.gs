@@ -88,7 +88,7 @@ function approvalHandle(responses){
   var aLastCol = ssA.getLastColumn();
   var keyRange = ssA.getRange(1, aLastCol-1, aLastRow, 1).getValues();
   
-  if(responses[4]=="Yes"){
+  if(responses[4]=="Approve"){
     var approved ="Approved"
   }
   else{
@@ -160,7 +160,7 @@ function approvalReply(responses, answer, dataSheet){
   approvalEmails(responses[1], responses[2]+" Approval", approverBody)
   
   
-  if(responses[4]=="Yes"){
+  if(responses[4]=="Approve"){
     var approved ="Approved"
     var reason = ""
   }
