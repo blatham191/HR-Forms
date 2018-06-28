@@ -129,7 +129,7 @@ function payAdjust(e){
   var destinationFolderID = getDriveID(response.site, 7);
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
-  var fileName = formType+" - "+fullName+" - "+key;
+  var fileName = formType+" - "+"[PayID - "+response.payrollNum+"]"+fullName+" - "+key;
   Logger.log(destinationFolderID);
   //var destinationFolderID = "1RJNzvTA-Li0ESvl1rXP-nkv5285yjw6U";
   var destFolder = DriveApp.getFolderById(destinationFolderID);
@@ -175,7 +175,7 @@ function changeInTerms(e){
   var destinationFolderID = getDriveID(response.site, 9);
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
-  var fileName = formType+" - "+fullName+" - "+key;
+  var fileName = formType+" - "+"[PayID - "+response.payrollNum+"]"+fullName+" - "+key;
   Logger.log(destinationFolderID);
   //var destinationFolderID = "1RJNzvTA-Li0ESvl1rXP-nkv5285yjw6U";
   var destFolder = DriveApp.getFolderById(destinationFolderID);
@@ -221,7 +221,7 @@ function leaver(e){
   var destinationFolderID = getDriveID(response.site, 11);
   var name = response.fName+" "+response.sName;
   var fullName = response.fName+"+"+response.sName;
-  var fileName = formType+" - "+name+" - "+key;
+  var fileName = formType+" - "+"[PayID - "+response.payrollNum+"]"+fullName+" - "+key;
   Logger.log(destinationFolderID);
   //var destinationFolderID = "1RJNzvTA-Li0ESvl1rXP-nkv5285yjw6U";
   var destFolder = DriveApp.getFolderById(destinationFolderID);

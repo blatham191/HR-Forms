@@ -22,8 +22,8 @@ function approvalProcess(e){
   }
   else if(responses[2] == "Change in Terms of Employment"){
     dataSheet ="changeInTerms_DataSheet";
+    ftpFolder = DriveApp.getFolderById("1zn8Ih23KAciLHY6eY2fz-3jbdkH1eCig")
     if(responses[10] == "Yes"){
-      ftpFolder = DriveApp.getFolderById("1zn8Ih23KAciLHY6eY2fz-3jbdkH1eCig")
       forHR = true
     }
     else if(responses[10] == "No"){
@@ -41,7 +41,7 @@ function approvalProcess(e){
   var payroll = getPayroll(responses[9]);
   
   if (approvedAnswer == "Approved"){
-    var fileName = "["+payroll+"]"+responses[2]+" - "+responses[3]+" - "+responses[7];
+    var fileName = "["+payroll+"]"+responses[2]+"[PayID -"+responses[11]+"]"+responses[2]+" - "+responses[3]+" - "+responses[7];
     var destinationFolderID = getDriveID(responses[9], col);
     var destFolder = DriveApp.getFolderById(destinationFolderID);
     var folders = [destFolder, ftpFolder]
@@ -58,6 +58,7 @@ function approvalProcess(e){
       var newId = makePDF(docId, folders, fileName);
       var document = _docUrl+newId;
     }
+    
     
     if(responses[2] == "New Starter"){
       var subject = responses[2]+" Submitted"
