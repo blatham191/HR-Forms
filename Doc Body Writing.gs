@@ -156,6 +156,8 @@ function writeEcd(body, response, key){
 
 function writePayAdjust(body, response, key){
   body.replaceText("<<Email Address>>", response.email); 
+  
+  body.replaceText("<<typeOfChange>>", response.typeOfChange);
     
   body.replaceText("<<payrollType>>", response.payrollType); 
   body.replaceText("<<payrollNum>>", response.payrollNum); 

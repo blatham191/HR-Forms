@@ -47,26 +47,42 @@ function approvalProcess(e){
     var folders = [destFolder, ftpFolder]
     var docId = addApprover(responses[2], responses)
     
-    var newId = makePDF(docId, folders, fileName);
-    var document = _docUrl+newId;
+    
+    //NEWCODE
+    if(responses[2] == "Pay Adjustment/Query" || responses[2] == "Change in Terms of Employment"){
+      var file = DriveApp.getFileById(docId).makeCopy(fileName, ftpFolder);
+      var newId = makePDF(docId, folders, fileName);
+      var document = _docUrl+newId;
+    }
+    else{
+      var newId = makePDF(docId, folders, fileName);
+      var document = _docUrl+newId;
+    }
+    
+    if(responses[2] == "New Starter"){
+      var subject = responses[2]+" Submitted"
+    }
+    else{
+      var subject = "[Payroll ID - "+responses[11]+"] "+responses[2]+" Submitted"
+    }
     
     if(forHR == true){
       var recipient = "karen.fellows@roadchef.com"
-      var payrollBody = "Hi Karen, A new form has been submitted, please see the following link for the submission document "+document;
+      var payrollBody = "Hi Karen,<br><br>A new form has been submitted, please see the following link for the submission document "+document+"<br>User for:"+responses[3]+"<br>Site:"+responses[9]+"<br>ID:"+responses[7];
     }
     else{
       var recipient = "liz.robertson@roadchef.com"
-      var payrollBody = "Hi Liz, A new form has been submitted, please see the following link for the submission document "+document;
+      var payrollBody = "Hi Liz,<br><br>A new form has been submitted, please see the following link for the submission document "+document+"<br>User for:"+responses[3]+"<br>Site:"+responses[9]+"<br>ID:"+responses[7];
     }
     
-    approvalEmails("ben.latham@roadchef.com", responses[2]+" "+"Submitted", payrollBody)
+    approvalEmails("ben.latham@roadchef.com", subject, payrollBody)
   }
   else if (approvedAnswer == "Rejected"){
     var fileName = "[REJECTED]"+responses[2]+" - "+responses[3]+" - "+responses[7];
     var destinationFolderID = getDriveID(responses[9], col+1);
     var destFolder = DriveApp.getFolderById(destinationFolderID);
     var folders = [destFolder]
-    var docId = addApprover(dataSheet , responses)
+    var docId = addApprover(dataSheet, responses)
     makePDF(docId, folders, fileName);
   }
 
@@ -181,7 +197,8 @@ function approvalReply(responses, answer, dataSheet){
 
 
 function approvalEmails(recipient, subject, body){
-  MailApp.sendEmail(recipient, subject, body, {
-      name:"HR Approver",
+  MailApp.sendEmail(recipient, subject, "not seen", {
+      htmlBody: body,
+      name:"HR Approver"
   })
 }

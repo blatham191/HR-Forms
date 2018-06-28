@@ -18,8 +18,15 @@ function sendMail(formType, approvers, key, response, driveLink, linkName, name)
   var ans_hidden_id = "&entry.1877727938="+key
   var ans_hidden_site = "&entry.358117515="+response.site
   var ans_grade_change = "&entry.841256230="+response.gradeChange
+  if(formType == "New Starter"){
+    var ans_payroll_Id = "&entry.143876862="
+  }
+  else{
+    var ans_payroll_Id = "&entry.143876862="+response.payrollNum
+  }
+  var ans_drive_Id = "&entry.1440115090="+driveLink
   
-  var link = formLink+ans_type+ans_vis_name+ans_approved+ans_reason+ans_hidden_name+ans_hidden_id+ans_hidden_site+ans_grade_change
+  var link = formLink+ans_type+ans_vis_name+ans_approved+ans_reason+ans_hidden_name+ans_hidden_id+ans_hidden_site+ans_grade_change+ans_payroll_Id+ans_drive_Id
   
   if(formType == 'Change in Terms of Employment'){
    var gradeType = "";
@@ -31,7 +38,7 @@ function sendMail(formType, approvers, key, response, driveLink, linkName, name)
       gradeType = "NOT A GRADE CHANGE"
     }
    var subject = "["+gradeType+"] "+formType + " Form Approval Request (" + key + ")" ;
-   var html = "A "+formType+" form has been submitted for "+name+" by "+response.email+" and needs approval<br>Please note that this submission has been marked as "+gradeType+" please ensure that this is correct before approving this form."+ "<a href='"+link+"'>Click Here</a><br>Please go to the following <a href='"+driveLink+"'>Google Drive Link to see the full document</a>";
+   var html = "A "+formType+" form has been submitted for "+name+" by "+response.email+" and needs approval<br>Please note that this submission has been marked as "+gradeType+" please ensure that this is correct before approving this form."+ "<a href='"+link+"'>Approve/Reject</a><br>Please go to the following <a href='"+driveLink+"'>Google Drive Link to see the full document</a>";
   }
   else{
     var subject = formType + " Form Approval Request (" + key + ")" ;
